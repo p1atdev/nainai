@@ -17,14 +17,13 @@ jobs:
         # ↓ if you use env
         # env:
         #   YOUR_SECRET_KEY: ${{ secrets.YOUR_SECRET_KEY }} 
-        run: deno task test
 
         # ↓ if you use Codecov
-        # run: deno task test:cov
+        run: deno task test:cov
 
-      # - name: Codecov
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     file: ./coverage.lcov
-      #     fail_ci_if_error: true
+      - name: Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.lcov
+          fail_ci_if_error: true
   
