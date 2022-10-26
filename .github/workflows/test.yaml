@@ -15,8 +15,8 @@ jobs:
 
       - name: Run test
         # ↓ if you use env
-        # env:
-        #   YOUR_SECRET_KEY: ${{ secrets.YOUR_SECRET_KEY }} 
+        env:
+          NAI_AUTH_TOKEN: ${{ secrets.NAI_AUTH_TOKEN }} 
 
         # ↓ if you use Codecov
         run: deno task test:cov
