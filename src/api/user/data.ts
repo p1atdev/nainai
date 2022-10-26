@@ -2,7 +2,7 @@ import { NAIEndpointOptions } from "../../endpoints.ts"
 import { NAIRequest } from "../../request.ts"
 import { NAIStatics } from "../../statics.ts"
 
-export const GetNAIAPIUserData = async ({ bearer }: NAIEndpointOptions) => {
+export const GetNAIUserData = async ({ bearer }: NAIEndpointOptions) => {
     const req = new NAIRequest({
         method: "GET",
         url: NAIStatics.API_URL,

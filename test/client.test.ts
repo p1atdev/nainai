@@ -1,18 +1,17 @@
-import { GetGISuggestTags, GetNAIUserData } from "../src/api/mod.ts"
+import { NAIClient } from "../mod.ts"
 import { assertEquals, assertExists } from "../deps.ts"
 import { AUTH_TOKEN, loadEnv } from "./utils.ts"
 
-Deno.test("API GET /user/data", async () => {
-    loadEnv()
+Deno.test("NAIClient get user data", async () => {
+    const clinet = new NAIClient({ auth_token: AUTH_TOKEN() })
 
-    const data = await GetNAIUserData({ bearer: AUTH_TOKEN() })
+    const data = await clinet.user.data()
 
     assertExists(data)
-    assertExists(data.settings)
 })
 
-Deno.test("API /ai/generate-image/suggest-tags", async () => {
-    loadEnv()
+Deno.test("NAIClinet generate image / suggest tags", async () => {
+    const clinet = new NAIClient({ auth_token: AUTH_TOKEN() })
 
     interface TestCase {
         prompt: string
@@ -45,8 +44,7 @@ Deno.test("API /ai/generate-image/suggest-tags", async () => {
 
     await Promise.all(
         testCases.map(async (testCase) => {
-            const data = await GetGISuggestTags({
-                bearer: AUTH_TOKEN(),
+            const data = await clinet.ai.generate_image.suggest_tags({
                 model: "nai-diffusion",
                 prompt: testCase.prompt,
             })

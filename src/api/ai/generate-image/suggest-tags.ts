@@ -4,12 +4,12 @@ import { NAIStatics } from "../../../statics.ts"
 
 export type ModelName = "nai-diffusion"
 
-export interface SuggestTagsOptions extends NAIEndpointOptions {
+export interface GetGISuggestTagsOptions extends NAIEndpointOptions {
     model: ModelName
     prompt: string
 }
 
-export const GetGISuggestTags = async ({ bearer, model, prompt }: SuggestTagsOptions) => {
+export const GetGISuggestTags = async ({ bearer, model, prompt }: GetGISuggestTagsOptions) => {
     const req = new NAIRequest({
         method: "GET",
         url: NAIStatics.API_URL,
