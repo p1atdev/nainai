@@ -1,6 +1,6 @@
 import { NAIClient } from "../mod.ts"
 import { assertEquals, assertExists } from "../deps.ts"
-import { AUTH_TOKEN, loadEnv } from "./utils.ts"
+import { AUTH_TOKEN } from "./utils.ts"
 
 Deno.test("NAIClient get user data", async () => {
     const clinet = new NAIClient({ auth_token: AUTH_TOKEN() })
