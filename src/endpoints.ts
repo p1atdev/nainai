@@ -5,6 +5,7 @@ export type NAIAPIEndpoint =
     | "/user/subscription"
     | "/user/objects/stories"
     | "/ai/generate-image/suggest-tags"
+    | "/ai/generate-image"
 
 export type NAIBaseEndpoint = "/tokenizer/clip_tokenizer.json" | "/status" | "/"
 

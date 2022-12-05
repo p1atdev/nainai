@@ -7,7 +7,7 @@ export class NAIRequest {
     private endpoint: NAIEndpoint
     private bearer: string
     private queries: Record<string, string> = {}
-    private body: any
+    private body: string
 
     constructor({ url, method, endpoint, bearer, queries, body }: NAIRequestOptions) {
         this.url = url
@@ -28,6 +28,8 @@ export class NAIRequest {
         for (const [key, value] of Object.entries(this.queries)) {
             url.searchParams.append(key, value)
         }
+
+        console.log(this.body)
 
         const response = await fetch(url, {
             method: this.method,
